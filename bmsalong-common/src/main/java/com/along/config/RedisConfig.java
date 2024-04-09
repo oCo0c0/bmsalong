@@ -155,7 +155,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 /**
  * Value 序列化
  *
- * @author /
+ * @author along
  * @param <T>
  */
  class FastJsonRedisSerializer<T> implements RedisSerializer<T> {
@@ -189,7 +189,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 /**
  * 重写序列化器
  *
- * @author /
+ * @author along
  */
 class StringRedisSerializer implements RedisSerializer<Object> {
 

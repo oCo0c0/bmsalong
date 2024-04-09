@@ -28,7 +28,7 @@ import java.util.List;
 
 /**
  * @author along
- * @date 2019-01-02
+ * @date 2023-01-02
  */
 public interface GeneratorService extends IService<ColumnInfo> {
 

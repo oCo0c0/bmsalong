@@ -25,7 +25,7 @@ import java.util.List;
 
 /**
 * @author along
-* @date 2019-04-10
+* @date 2023-04-10
 */
 public interface DictDetailService extends IService<DictDetail> {
 

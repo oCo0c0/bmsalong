@@ -39,8 +39,8 @@ import java.util.Map;
 
 /**
  * 发送邮件
- * @author 郑杰
- * @date 2023/09/28 6:55:53
+ * @author along
+ * @date 2023-09-28
  */
 @Slf4j
 @RestController

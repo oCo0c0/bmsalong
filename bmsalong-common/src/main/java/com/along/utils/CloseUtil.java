@@ -21,7 +21,7 @@ import java.io.Closeable;
  * @author along
  * @website https://bmsalong.vip
  * @description 用于关闭各种连接，缺啥补啥
- * @date 2021-03-05
+ * @date 2023-03-05
  **/
 public class CloseUtil {
 

@@ -30,7 +30,7 @@ import java.sql.Timestamp;
 /**
  * 通用字段， is_del 根据需求自行添加
  * @author along
- * @Date 2019年10月24日20:46:32
+ * @Date 2023-10-24
  */
 @Getter
 @Setter

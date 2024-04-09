@@ -36,7 +36,7 @@ import java.util.Set;
 
 /**
 * @author along
-* @date 2019-03-29
+* @date 2023-03-29
 */
 @RestController
 @RequiredArgsConstructor
@@ -49,14 +49,14 @@ public class JobController {
 
     @ApiOperation("导出岗位数据")
     @GetMapping(value = "/download")
-    @PreAuthorize("@el.check('job:list')")
+    @PreAuthorize("@bms.check('job:list')")
     public void exportJob(HttpServletResponse response, JobQueryCriteria criteria) throws IOException {
         jobService.download(jobService.queryAll(criteria), response);
     }
 
     @ApiOperation("查询岗位")
     @GetMapping
-    @PreAuthorize("@el.check('job:list','user:list')")
+    @PreAuthorize("@bms.check('job:list','user:list')")
     public ResponseEntity<PageResult<Job>> queryJob(JobQueryCriteria criteria, Page<Object> page){
         return new ResponseEntity<>(jobService.queryAll(criteria, page),HttpStatus.OK);
     }
@@ -64,7 +64,7 @@ public class JobController {
     @Log("新增岗位")
     @ApiOperation("新增岗位")
     @PostMapping
-    @PreAuthorize("@el.check('job:add')")
+    @PreAuthorize("@bms.check('job:add')")
     public ResponseEntity<Object> createJob(@Validated @RequestBody Job resources){
         if (resources.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
@@ -76,7 +76,7 @@ public class JobController {
     @Log("修改岗位")
     @ApiOperation("修改岗位")
     @PutMapping
-    @PreAuthorize("@el.check('job:edit')")
+    @PreAuthorize("@bms.check('job:edit')")
     public ResponseEntity<Object> updateJob(@Validated(Job.Update.class) @RequestBody Job resources){
         jobService.update(resources);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -85,7 +85,7 @@ public class JobController {
     @Log("删除岗位")
     @ApiOperation("删除岗位")
     @DeleteMapping
-    @PreAuthorize("@el.check('job:del')")
+    @PreAuthorize("@bms.check('job:del')")
     public ResponseEntity<Object> deleteJob(@RequestBody Set<Long> ids){
         // 验证是否被用户关联
         jobService.verification(ids);

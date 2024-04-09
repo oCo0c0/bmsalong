@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
 * @author along
-* @date 2019-09-05
+* @date 2023-09-05
 */
 @Data
 public class LocalStorageQueryCriteria{

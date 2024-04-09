@@ -16,8 +16,8 @@
 package com.along.modules.mnt.websocket;
 
 /**
- * @author ZhangHouYing
- * @date 2019-08-10 9:56
+ * @author along
+ * @date 2023-08-10 9:56
  */
 public enum MsgType {
 	/** 连接 */

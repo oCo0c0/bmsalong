@@ -68,14 +68,14 @@ public class UserController {
 
     @ApiOperation("导出用户数据")
     @GetMapping(value = "/download")
-    @PreAuthorize("@el.check('user:list')")
+    @PreAuthorize("@bms.check('user:list')")
     public void exportUser(HttpServletResponse response, UserQueryCriteria criteria) throws IOException {
         userService.download(userService.queryAll(criteria), response);
     }
 
     @ApiOperation("查询用户")
     @GetMapping
-    @PreAuthorize("@el.check('user:list')")
+    @PreAuthorize("@bms.check('user:list')")
     public ResponseEntity<PageResult<User>> queryUser(UserQueryCriteria criteria, Page<Object> page){
         if (!ObjectUtils.isEmpty(criteria.getDeptId())) {
             criteria.getDeptIds().add(criteria.getDeptId());
@@ -104,7 +104,7 @@ public class UserController {
     @Log("新增用户")
     @ApiOperation("新增用户")
     @PostMapping
-    @PreAuthorize("@el.check('user:add')")
+    @PreAuthorize("@bms.check('user:add')")
     public ResponseEntity<Object> createUser(@Validated @RequestBody User resources){
         checkLevel(resources);
         // 默认密码 123456
@@ -116,7 +116,7 @@ public class UserController {
     @Log("修改用户")
     @ApiOperation("修改用户")
     @PutMapping
-    @PreAuthorize("@el.check('user:edit')")
+    @PreAuthorize("@bms.check('user:edit')")
     public ResponseEntity<Object> updateUser(@Validated(User.Update.class) @RequestBody User resources) throws Exception {
         checkLevel(resources);
         userService.update(resources);
@@ -137,7 +137,7 @@ public class UserController {
     @Log("删除用户")
     @ApiOperation("删除用户")
     @DeleteMapping
-    @PreAuthorize("@el.check('user:del')")
+    @PreAuthorize("@bms.check('user:del')")
     public ResponseEntity<Object> deleteUser(@RequestBody Set<Long> ids){
         for (Long id : ids) {
             Integer currentLevel =  Collections.min(roleService.findByUsersId(SecurityUtils.getCurrentUserId()).stream().map(Role::getLevel).collect(Collectors.toList()));

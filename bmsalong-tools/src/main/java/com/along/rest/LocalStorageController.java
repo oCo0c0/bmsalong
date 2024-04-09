@@ -36,7 +36,7 @@ import java.io.IOException;
 
 /**
 * @author along
-* @date 2019-09-05
+* @date 2023-09-05
 */
 @RestController
 @RequiredArgsConstructor
@@ -48,21 +48,21 @@ public class LocalStorageController {
 
     @GetMapping
     @ApiOperation("查询文件")
-    @PreAuthorize("@el.check('storage:list')")
+    @PreAuthorize("@bms.check('storage:list')")
     public ResponseEntity<PageResult<LocalStorage>> queryFile(LocalStorageQueryCriteria criteria, Page<Object> page){
         return new ResponseEntity<>(localStorageService.queryAll(criteria,page),HttpStatus.OK);
     }
 
     @ApiOperation("导出数据")
     @GetMapping(value = "/download")
-    @PreAuthorize("@el.check('storage:list')")
+    @PreAuthorize("@bms.check('storage:list')")
     public void exportFile(HttpServletResponse response, LocalStorageQueryCriteria criteria) throws IOException {
         localStorageService.download(localStorageService.queryAll(criteria), response);
     }
 
     @PostMapping
     @ApiOperation("上传文件")
-    @PreAuthorize("@el.check('storage:add')")
+    @PreAuthorize("@bms.check('storage:add')")
     public ResponseEntity<Object> createFile(@RequestParam String name, @RequestParam("file") MultipartFile file){
         localStorageService.create(name, file);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -83,7 +83,7 @@ public class LocalStorageController {
     @PutMapping
     @Log("修改文件")
     @ApiOperation("修改文件")
-    @PreAuthorize("@el.check('storage:edit')")
+    @PreAuthorize("@bms.check('storage:edit')")
     public ResponseEntity<Object> updateFile(@Validated @RequestBody LocalStorage resources){
         localStorageService.update(resources);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

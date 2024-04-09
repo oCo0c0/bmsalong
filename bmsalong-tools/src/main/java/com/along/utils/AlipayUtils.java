@@ -27,8 +27,8 @@ import java.util.Map;
 
 /**
  * 支付宝工具类
- * @author zhengjie
- * @date 2023/09/30 14:04:35
+ * @author along
+ * @date 2023-09-30
  */
 @Component
 public class AlipayUtils {

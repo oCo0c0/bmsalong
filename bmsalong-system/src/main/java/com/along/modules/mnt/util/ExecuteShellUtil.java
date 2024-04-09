@@ -27,8 +27,8 @@ import java.util.Vector;
 /**
  * 执行shell命令
  *
- * @author: ZhangHouYing
- * @date: 2019/8/10
+ * @author: along
+ * @date: 2023/8/10
  */
 @Slf4j
 public class ExecuteShellUtil {

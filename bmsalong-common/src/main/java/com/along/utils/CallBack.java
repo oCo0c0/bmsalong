@@ -17,8 +17,8 @@
 package com.along.utils;
 
 /**
- * @author: liaojinlong
- * @date: 2020/6/9 17:02
+ * @author along
+ * @date: 2023-6-9
  * @since: 1.0
  * @see {@link SpringContextHolder}
  * 针对某些初始化方法，在SpringContextHolder 初始化前时，<br>

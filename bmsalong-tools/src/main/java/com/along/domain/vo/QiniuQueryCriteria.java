@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * @author along
- * @date 2019-6-4 09:54:37
+ * @date 2023-6-4 09:54:37
  */
 @Data
 public class QiniuQueryCriteria{

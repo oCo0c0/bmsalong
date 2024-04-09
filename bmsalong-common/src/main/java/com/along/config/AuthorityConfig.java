@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 /**
  * @author along
  */
-@Service(value = "el")
+@Service(value = "bms")
 public class AuthorityConfig {
 
     public Boolean check(String ...permissions){

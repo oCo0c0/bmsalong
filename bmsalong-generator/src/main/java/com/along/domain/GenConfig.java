@@ -29,7 +29,7 @@ import java.io.Serializable;
 /**
  * 代码生成配置
  * @author along
- * @date 2019-01-03
+ * @date 2023-01-03
  */
 @Getter
 @Setter

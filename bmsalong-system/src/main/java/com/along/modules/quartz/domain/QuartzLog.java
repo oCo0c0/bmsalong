@@ -23,7 +23,7 @@ import java.sql.Timestamp;
 
 /**
  * @author along
- * @date 2019-01-07
+ * @date 2023-01-07
  */
 @Data
 @TableName("sys_quartz_log")

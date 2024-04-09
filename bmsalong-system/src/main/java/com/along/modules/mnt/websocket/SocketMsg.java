@@ -18,8 +18,8 @@ package com.along.modules.mnt.websocket;
 import lombok.Data;
 
 /**
- * @author ZhangHouYing
- * @date 2019-08-10 9:55
+ * @author along
+ * @date 2023-08-10 9:55
  */
 @Data
 public class SocketMsg {

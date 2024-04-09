@@ -29,8 +29,8 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * 发送邮件
- * @author 郑杰
- * @date 2023/09/28 6:55:53
+ * @author along
+ * @date 2023-09-28
  */
 @RestController
 @RequiredArgsConstructor

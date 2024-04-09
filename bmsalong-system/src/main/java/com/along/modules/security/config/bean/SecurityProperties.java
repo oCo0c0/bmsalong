@@ -21,7 +21,7 @@ import lombok.Data;
  * Jwt参数配置
  *
  * @author along
- * @date 2019年11月28日
+ * @date 2023-11-28
  */
 @Data
 public class SecurityProperties {

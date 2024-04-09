@@ -25,8 +25,8 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArraySet;
 /**
- * @author ZhangHouYing
- * @date 2019-08-10 15:46
+ * @author along
+ * @date 2023-08-10 15:46
  */
 @ServerEndpoint("/webSocket/{sid}")
 @Slf4j

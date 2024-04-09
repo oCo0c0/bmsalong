@@ -20,7 +20,7 @@ import lombok.Data;
 /**
  * 修改密码的 Vo 类
  * @author along
- * @date 2019年7月11日13:59:49
+ * @date 2023-7-11
  */
 @Data
 public class UserPassVo {

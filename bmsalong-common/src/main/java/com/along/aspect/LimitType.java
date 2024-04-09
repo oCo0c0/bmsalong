@@ -17,7 +17,7 @@ package com.along.aspect;
 
 /**
  * 限流枚举
- * @author /
+ * @author along
  */
 public enum LimitType {
     // 默认

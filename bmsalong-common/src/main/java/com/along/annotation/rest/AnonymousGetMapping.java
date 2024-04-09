@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * <p>
  * 支持匿名访问   GetMapping
  *
- * @author liaojinlong
+ * @author along
  * @see RequestMapping
  */
 @AnonymousAccess

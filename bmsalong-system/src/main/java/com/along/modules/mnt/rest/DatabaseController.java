@@ -40,8 +40,8 @@ import java.io.IOException;
 import java.util.Set;
 
 /**
-* @author zhanghouying
-* @date 2019-08-24
+* @author along
+* @date 2023-08-24
 */
 @Api(tags = "运维：数据库管理")
 @RestController
@@ -54,14 +54,14 @@ public class DatabaseController {
 
 	@ApiOperation("导出数据库数据")
 	@GetMapping(value = "/download")
-	@PreAuthorize("@el.check('database:list')")
+	@PreAuthorize("@bms.check('database:list')")
 	public void exportDatabase(HttpServletResponse response, DatabaseQueryCriteria criteria) throws IOException {
 		databaseService.download(databaseService.queryAll(criteria), response);
 	}
 
     @ApiOperation(value = "查询数据库")
     @GetMapping
-	@PreAuthorize("@el.check('database:list')")
+	@PreAuthorize("@bms.check('database:list')")
     public ResponseEntity<PageResult<Database>> queryDatabase(DatabaseQueryCriteria criteria, Page<Object> page){
         return new ResponseEntity<>(databaseService.queryAll(criteria, page),HttpStatus.OK);
     }
@@ -69,7 +69,7 @@ public class DatabaseController {
     @Log("新增数据库")
     @ApiOperation(value = "新增数据库")
     @PostMapping
-	@PreAuthorize("@el.check('database:add')")
+	@PreAuthorize("@bms.check('database:add')")
     public ResponseEntity<Object> createDatabase(@Validated @RequestBody Database resources){
 		databaseService.create(resources);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -78,7 +78,7 @@ public class DatabaseController {
     @Log("修改数据库")
     @ApiOperation(value = "修改数据库")
     @PutMapping
-	@PreAuthorize("@el.check('database:edit')")
+	@PreAuthorize("@bms.check('database:edit')")
     public ResponseEntity<Object> updateDatabase(@Validated @RequestBody Database resources){
         databaseService.update(resources);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -87,7 +87,7 @@ public class DatabaseController {
     @Log("删除数据库")
     @ApiOperation(value = "删除数据库")
     @DeleteMapping
-	@PreAuthorize("@el.check('database:del')")
+	@PreAuthorize("@bms.check('database:del')")
     public ResponseEntity<Object> deleteDatabase(@RequestBody Set<String> ids){
         databaseService.delete(ids);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -96,7 +96,7 @@ public class DatabaseController {
 	@Log("测试数据库链接")
 	@ApiOperation(value = "测试数据库链接")
 	@PostMapping("/testConnect")
-	@PreAuthorize("@el.check('database:testConnect')")
+	@PreAuthorize("@bms.check('database:testConnect')")
 	public ResponseEntity<Object> testConnect(@Validated @RequestBody Database resources){
 		return new ResponseEntity<>(databaseService.testConnection(resources),HttpStatus.CREATED);
 	}
@@ -104,7 +104,7 @@ public class DatabaseController {
 	@Log("执行SQL脚本")
 	@ApiOperation(value = "执行SQL脚本")
 	@PostMapping(value = "/upload")
-	@PreAuthorize("@el.check('database:add')")
+	@PreAuthorize("@bms.check('database:add')")
 	public ResponseEntity<Object> uploadDatabase(@RequestBody MultipartFile file, HttpServletRequest request)throws Exception{
 		String id = request.getParameter("id");
 		Database database = databaseService.getById(id);

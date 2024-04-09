@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * methods.
  * 支持匿名访问 PostMapping
  *
- * @author liaojinlong
+ * @author along
  * @see AnonymousGetMapping
  * @see AnonymousPostMapping
  * @see AnonymousPutMapping

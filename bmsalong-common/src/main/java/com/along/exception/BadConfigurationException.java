@@ -18,8 +18,8 @@ package com.along.exception;
 /**
  * 统一关于错误配置信息 异常
  *
- * @author: liaojinlong
- * @date: 2020/6/10 18:06
+ * @author along
+ * @date: 2023-6-10
  */
 public class BadConfigurationException extends RuntimeException {
     /**

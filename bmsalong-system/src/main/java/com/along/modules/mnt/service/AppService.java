@@ -28,8 +28,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
-* @author zhanghouying
-* @date 2019-08-24
+* @author along
+* @date 2023-08-24
 */
 public interface AppService extends IService<App> {
 

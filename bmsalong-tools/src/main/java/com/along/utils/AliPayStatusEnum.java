@@ -17,8 +17,8 @@ package com.along.utils;
 
 /**
  * 支付状态
- * @author zhengjie
- * @date 2023/08/01 16:45:43
+ * @author along
+ * @date 2023-08-01
  */
 public enum  AliPayStatusEnum {
 

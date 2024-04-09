@@ -34,8 +34,8 @@ import java.io.IOException;
 import java.util.Set;
 
 /**
-* @author zhanghouying
-* @date 2019-08-24
+* @author along
+* @date 2023-08-24
 */
 @RestController
 @Api(tags = "运维：服务器管理")
@@ -47,14 +47,14 @@ public class ServerController {
 
     @ApiOperation("导出服务器数据")
     @GetMapping(value = "/download")
-    @PreAuthorize("@el.check('serverDeploy:list')")
+    @PreAuthorize("@bms.check('serverDeploy:list')")
     public void exportServerDeploy(HttpServletResponse response, ServerQueryCriteria criteria) throws IOException {
         serverService.download(serverService.queryAll(criteria), response);
     }
 
     @ApiOperation(value = "查询服务器")
     @GetMapping
-	@PreAuthorize("@el.check('serverDeploy:list')")
+	@PreAuthorize("@bms.check('serverDeploy:list')")
     public ResponseEntity<PageResult<Server>> queryServerDeploy(ServerQueryCriteria criteria, Page<Object> page){
     	return new ResponseEntity<>(serverService.queryAll(criteria, page),HttpStatus.OK);
     }
@@ -62,7 +62,7 @@ public class ServerController {
     @Log("新增服务器")
     @ApiOperation(value = "新增服务器")
     @PostMapping
-	@PreAuthorize("@el.check('serverDeploy:add')")
+	@PreAuthorize("@bms.check('serverDeploy:add')")
     public ResponseEntity<Object> createServerDeploy(@Validated @RequestBody Server resources){
         serverService.create(resources);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -71,7 +71,7 @@ public class ServerController {
     @Log("修改服务器")
     @ApiOperation(value = "修改服务器")
     @PutMapping
-	@PreAuthorize("@el.check('serverDeploy:edit')")
+	@PreAuthorize("@bms.check('serverDeploy:edit')")
     public ResponseEntity<Object> updateServerDeploy(@Validated @RequestBody Server resources){
         serverService.update(resources);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -80,7 +80,7 @@ public class ServerController {
     @Log("删除服务器")
     @ApiOperation(value = "删除Server")
 	@DeleteMapping
-	@PreAuthorize("@el.check('serverDeploy:del')")
+	@PreAuthorize("@bms.check('serverDeploy:del')")
     public ResponseEntity<Object> deleteServerDeploy(@RequestBody Set<Long> ids){
         serverService.delete(ids);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -89,7 +89,7 @@ public class ServerController {
 	@Log("测试连接服务器")
 	@ApiOperation(value = "测试连接服务器")
 	@PostMapping("/testConnect")
-	@PreAuthorize("@el.check('serverDeploy:add')")
+	@PreAuthorize("@bms.check('serverDeploy:add')")
 	public ResponseEntity<Object> testConnectServerDeploy(@Validated @RequestBody Server resources){
 		return new ResponseEntity<>(serverService.testConnect(resources),HttpStatus.CREATED);
 	}

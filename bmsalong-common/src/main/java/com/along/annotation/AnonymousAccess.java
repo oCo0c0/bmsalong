@@ -18,7 +18,7 @@ package com.along.annotation;
 import java.lang.annotation.*;
 
 /**
- * @author jacky
+ * @author along
  *  用于标记匿名访问方法
  */
 @Inherited

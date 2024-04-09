@@ -27,8 +27,8 @@ import com.along.base.BaseEntity;
 import java.io.Serializable;
 
 /**
-* @author zhanghouying
-* @date 2019-08-24
+* @author along
+* @date 2023-08-24
 */
 @Getter
 @Setter
