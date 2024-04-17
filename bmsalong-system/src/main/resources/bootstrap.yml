@@ -14,7 +14,7 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 2.tcp.vip.cpolar.cn:14423 #nacos中心地址
+        server-addr: quick9.shenzhuo.vip:15507 #nacos中心地址
         file-extension: yaml # 配置文件格式
         refresh-enabled: true
         enabled: true
@@ -22,7 +22,7 @@ spring:
           - data-id: bmsalong-common.yaml
             refresh: true
       discovery:
-        server-addr: 2.tcp.vip.cpolar.cn:14423
+        server-addr: quick9.shenzhuo.vip:15507
 
 task:
   pool:
