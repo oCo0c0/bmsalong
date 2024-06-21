@@ -10,19 +10,23 @@ spring:
   profiles:
     active: @activeProfiles@
   application:
-    name: bmsalong-api-${spring.profiles.active}
+    name: bmsalong-api
   cloud:
     nacos:
+      username: nacos
+      password: nacos
       config:
-        server-addr: http://nacos-along.cpolar.io #nacos中心地址
-        file-extension: yaml # 配置文件格式
+        server-addr: 123.60.142.203:8848
+        namespace: 4718f507-886e-4404-9c52-f08f714aaf9b
+        file-extension: yaml
         refresh-enabled: true
         enabled: true
         shared-configs:
           - data-id: bmsalong-common.yaml
             refresh: true
       discovery:
-        server-addr: http://nacos-along.cpolar.io
+        server-addr: 123.60.142.203:8848
+        namespace: 4718f507-886e-4404-9c52-f08f714aaf9b
 
 task:
   pool:

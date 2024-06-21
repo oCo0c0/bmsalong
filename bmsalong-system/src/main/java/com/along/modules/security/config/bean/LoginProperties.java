@@ -20,6 +20,8 @@ import com.wf.captcha.base.Captcha;
 import lombok.Data;
 import com.along.exception.BadConfigurationException;
 import com.along.utils.StringUtils;
+import lombok.Getter;
+
 import java.awt.*;
 import java.util.Objects;
 
@@ -35,15 +37,12 @@ public class LoginProperties {
     /**
      * 账号单用户 登录
      */
+    @Getter
     private boolean singleLogin = false;
 
     private LoginCode loginCode;
 
     public static final String cacheKey = "user-login-cache:";
-
-    public boolean isSingleLogin() {
-        return singleLogin;
-    }
 
     /**
      * 获取验证码生产类

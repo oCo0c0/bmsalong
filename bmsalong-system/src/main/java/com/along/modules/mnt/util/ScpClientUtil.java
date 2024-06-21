@@ -31,12 +31,10 @@ import java.util.logging.Logger;
  */
 public class ScpClientUtil {
 
-	static private Map<String,ScpClientUtil> instance = Maps.newHashMap();
+	static private final Map<String,ScpClientUtil> instance = Maps.newHashMap();
 
 	static synchronized public ScpClientUtil getInstance(String ip, int port, String username, String password) {
-		if (instance.get(ip) == null) {
-			instance.put(ip, new ScpClientUtil(ip, port, username, password));
-		}
+        instance.computeIfAbsent(ip, i -> new ScpClientUtil(i, port, username, password));
 		return instance.get(ip);
 	}
 
@@ -58,7 +56,7 @@ public class ScpClientUtil {
 			SCPClient client = new SCPClient(conn);
 			client.get(remoteFile, localTargetDirectory);
 		} catch (IOException ex) {
-			Logger.getLogger(SCPClient.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(ScpClientUtil.class.getName()).log(Level.SEVERE, null, ex);
 		}finally{
 			conn.close();
 		}
@@ -81,7 +79,7 @@ public class ScpClientUtil {
 				System.err.println("authentication failed");
 			}
 			SCPClient client = new SCPClient(conn);
-			if ((mode == null) || (mode.length() == 0)) {
+			if ((mode == null) || (mode.isEmpty())) {
 				mode = "0600";
 			}
 			if (remoteFileName == null) {
@@ -96,10 +94,10 @@ public class ScpClientUtil {
 		}
 	}
 
-	private String ip;
-	private int port;
-	private String username;
-	private String password;
+	private final String ip;
+	private final int port;
+	private final String username;
+	private final String password;
 
 
 }

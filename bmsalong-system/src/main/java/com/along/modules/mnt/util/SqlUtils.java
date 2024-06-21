@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.sql.*;
 import java.util.List;
 
@@ -111,7 +112,7 @@ public class SqlUtils {
 				connection.close();
 			} catch (Exception e) {
 				log.error(e.getMessage(),e);
-				log.error("connection close error：" + e.getMessage());
+                log.error("connection close error：{}", e.getMessage());
 			}
 		}
 	}
@@ -124,7 +125,7 @@ public class SqlUtils {
 				return true;
 			}
 		} catch (Exception e) {
-			log.info("Get connection failed:" + e.getMessage());
+            log.info("Get connection failed:{}", e.getMessage());
 		} finally {
 			releaseConnection(connection);
 		}
@@ -178,7 +179,7 @@ public class SqlUtils {
 		List<String> sqlList = Lists.newArrayList();
 		StringBuilder sb = new StringBuilder();
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(
-				new FileInputStream(sqlFile), StandardCharsets.UTF_8))) {
+                Files.newInputStream(sqlFile.toPath()), StandardCharsets.UTF_8))) {
 			String tmp;
 			while ((tmp = reader.readLine()) != null) {
 				log.info("line:{}", tmp);
