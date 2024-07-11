@@ -24,6 +24,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -198,7 +200,7 @@ public class RedisUtils {
      * 批量模糊删除key
      * @param pattern
      */
-    public void scanDel(String pattern){
+    public void scanDel(String pattern) throws IOException {
         ScanOptions options = ScanOptions.scanOptions().match(pattern).build();
         try (Cursor<byte[]> cursor = redisTemplate.executeWithStickyConnection(
                 (RedisCallback<Cursor<byte[]>>) connection -> (Cursor<byte[]>) new ConvertingCursor<>(

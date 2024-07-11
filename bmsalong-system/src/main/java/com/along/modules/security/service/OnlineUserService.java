@@ -142,7 +142,7 @@ public class OnlineUserService {
      * @param username /
      */
     @Async
-    public void kickOutForUsername(String username) {
+    public void kickOutForUsername(String username) throws IOException {
         String loginKey = properties.getOnlineKey() + username + "*";
         redisUtils.scanDel(loginKey);
     }

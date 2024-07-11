@@ -235,6 +235,13 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>Dockerfile</include>
+                </includes>
+                <targetPath>${project.build.directory}</targetPath>
+            </resource>
         </resources>
         <!-- 设置构建的 jar 包名 -->
         <finalName>${project.artifactId}</finalName>
